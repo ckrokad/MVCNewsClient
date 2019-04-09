@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "addNews";
+}
+
+<h2>Add News</h2>
+<div class="container">
+    <div class="jumbotron">
+        @using (Html.BeginForm("addNews", "News", null, FormMethod.Post,
+                                 new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group row">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="desc">Description</label>
+                <textarea class="form-control" id="desc" name="description" placeholder="Description" rows="15" required></textarea>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="tag">Tag </label>
+                <select class="form-control" name="tag" id="tag" required>
+                    <option value="India">india</option>
+                    <option value="World">world</option>
+                    <option value="Politics">politics</option>
+                    <option value="Business">business</option>
+                    <option value="Science">science</option>
+                    <option value="Sports">sports</option>
+                    <option value="Tech">tech</option>
+                    <option value="Health">health</option>
+                </select>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="file" class="form-control" required/>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="city">City </label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+            </div>
+            <button type="submit" class="row btn btn-primary">Add</button>
+        }
+    </div>
+</div>

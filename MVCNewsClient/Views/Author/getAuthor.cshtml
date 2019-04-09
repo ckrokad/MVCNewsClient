@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "getAuthor";
+}
+<style>
+    #profile {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+</style>
+<h2>Author Details</h2>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            
+                <div class="col-md-3">
+                 
+                    <img src=@ViewBag.imgsrc id="profile" class="img-fluid" alt="Responsive image">
+                </div>
+            
+            
+                <div class="col">
+                    <h4> Name : @ViewBag.authordata.authorName</h4>
+
+                </div>
+            
+
+            <br />
+                <div class="col">
+                    <h4>City: @ViewBag.authordata.authorCity</h4>
+
+                </div>
+            
+
+
+        </div>
+    </div>
+
+</div>
+

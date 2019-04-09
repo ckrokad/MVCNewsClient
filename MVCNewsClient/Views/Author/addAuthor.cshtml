@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "addAuthor";
+}
+
+<h2>Register Author</h2>
+<div class="container">
+    <div class="jumbotron">
+        @using (Html.BeginForm("addAuthor", "Author", null, FormMethod.Post,
+                                  new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group row">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="authorName" required>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="authorCity" required>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="file" class="form-control" />
+            </div>
+            <br />
+            <button type="submit" class="row btn btn-primary">Register</button>
+        }
+    </div>
+</div>

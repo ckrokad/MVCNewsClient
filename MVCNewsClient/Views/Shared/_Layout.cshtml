@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TheOpenNews", "getAllNews", "News", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "getAllNews", "News", new { area = "" }, new { @class = "navbar-brand " })
+                @Html.ActionLink("India", "getAllNews", "News", new { tag = "India" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("World", "getAllNews", "News", new { tag = "World" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Politics", "getAllNews", "News", new { tag = "Politics" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Business", "getAllNews", "News", new { tag = "Business" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Science", "getAllNews", "News", new { tag = "Science" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Sports", "getAllNews", "News", new { tag = "Sports" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Tech", "getAllNews", "News", new { tag = "Tech" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Health", "getAllNews", "News", new { tag = "Health" }, new { @class = "navbar-brand" })
+
+                @if (Session["authorid"] == null)
+                {
+                    @Html.ActionLink("Login", "Login", "Author", new { area = "" }, new { @class = "navbar-brand" })
+
+                }
+                @if (Session["authorid"] != null)
+                {
+                    @Html.ActionLink("My News", "getAllNews", "News", new { authorid = (int)Session["authorid"] }, new { @class = "navbar-brand right " })
+
+                    @Html.ActionLink("Logout", "Logout", "Author", new { area = "" }, new { @class = "navbar-brand " })
+
+                }
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - The Open News Application</p>
+            @if (Session["authorid"] != null)
+            {
+
+                @Html.ActionLink("Logout", "Logout", "Author", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Update Profile", "updateAuthor", "Author", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Profile", "getAuthor", "Author", new { id = (int)Session["authorid"] }, new { @class = "navbar-brand" })
+
+            }
+
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

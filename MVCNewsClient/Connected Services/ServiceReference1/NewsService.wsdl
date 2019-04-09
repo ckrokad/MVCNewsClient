@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/NewsService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/NewsService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/NewsService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NewsService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsService_uploadImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:uploadImage" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_uploadImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:uploadImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:getImage" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAllNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAllNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_addNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:addNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_addNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_removeNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_removeNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_updateNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_updateNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAllAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAllAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_getAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_addAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:addAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_addAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_removeAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_removeAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_updateAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_updateAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAuthorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INewsService">
+    <wsdl:operation name="uploadImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/uploadImage" message="tns:INewsService_uploadImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/uploadImageResponse" message="tns:INewsService_uploadImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/getImage" message="tns:INewsService_getImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/getImageResponse" message="tns:INewsService_getImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/getAllNews" message="tns:INewsService_getAllNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/getAllNewsResponse" message="tns:INewsService_getAllNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/getNews" message="tns:INewsService_getNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/getNewsResponse" message="tns:INewsService_getNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/addNews" message="tns:INewsService_addNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/addNewsResponse" message="tns:INewsService_addNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/removeNews" message="tns:INewsService_removeNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/removeNewsResponse" message="tns:INewsService_removeNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/updateNews" message="tns:INewsService_updateNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/updateNewsResponse" message="tns:INewsService_updateNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/getAllAuthor" message="tns:INewsService_getAllAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/getAllAuthorResponse" message="tns:INewsService_getAllAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/Login" message="tns:INewsService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/LoginResponse" message="tns:INewsService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/getAuthor" message="tns:INewsService_getAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/getAuthorResponse" message="tns:INewsService_getAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/addAuthor" message="tns:INewsService_addAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/addAuthorResponse" message="tns:INewsService_addAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/removeAuthor" message="tns:INewsService_removeAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/removeAuthorResponse" message="tns:INewsService_removeAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/updateAuthor" message="tns:INewsService_updateAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/updateAuthorResponse" message="tns:INewsService_updateAuthor_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INewsService" type="tns:INewsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="uploadImage">
+      <soap:operation soapAction="http://tempuri.org/INewsService/uploadImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage">
+      <soap:operation soapAction="http://tempuri.org/INewsService/getImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllNews">
+      <soap:operation soapAction="http://tempuri.org/INewsService/getAllNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNews">
+      <soap:operation soapAction="http://tempuri.org/INewsService/getNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNews">
+      <soap:operation soapAction="http://tempuri.org/INewsService/addNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeNews">
+      <soap:operation soapAction="http://tempuri.org/INewsService/removeNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateNews">
+      <soap:operation soapAction="http://tempuri.org/INewsService/updateNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsService/getAllAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/INewsService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsService/getAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsService/addAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsService/removeAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsService/updateAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsService">
+    <wsdl:port name="BasicHttpBinding_INewsService" binding="tns:BasicHttpBinding_INewsService">
+      <soap:address location="http://localhost:8733/NewsService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

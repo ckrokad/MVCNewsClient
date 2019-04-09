@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "getAllNews";
+}
+<style>
+    #img1 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 250px;
+        height: 250px;
+    }
+    #title1{
+    
+        font-weight: bold;
+    
+    }
+</style>
+<h2>All News</h2>
+<div class="container">
+    <div class="jumbotron">
+        @if(ViewBag.message != null)
+        {
+            <h3>@ViewBag.message</h3>
+        }
+        
+            
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var item in ViewBag.List)
+                {
+                    <a href="@Url.Action("getNews", "News",new { id = item.newsId})" class="list-group-item list-group-item-action">
+                        
+                        <div class="card mb-3" style="max-width:100%;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    @{
+                                        var imagedata = "data:image;base64," + Convert.ToBase64String(item.imagedata);
+                                        <img src=@imagedata class="card-img" alt="..." id="img1">
+                                    }
+                                    
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <p class="card-title " id="title1">@item.title</p>
+                                        @{
+                                            string description = item.description.Substring(0, 100)+"...";
+                                            <h4 class="card-text">@description</h4>
+
+                                        }
+                                        <p class="card-text"><small class="text-muted">@item.tag</small></p>
+                                        <p class="card-text"><small class="text-muted">@item.datetime</small></p>
+                                        <p class="card-text"><small class="text-muted">Author:@item.author.authorName</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                       
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="row">
+            @if (Session["authorid"] != null)
+            {
+                <a href="@Url.Action("addNews", "News", new { })" class="col-lg-3">Add News</a>
+               
+            }
+        </div>
+    </div>
+</div>

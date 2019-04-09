@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "updateNews";
+}
+<style>
+    .lid{
+        width:100%;
+        margin-right:100px;
+    }
+</style>
+
+
+<div class="">
+    <h2>Update News</h2>
+    <div class="jumbotron">
+
+        <div class="row">
+            @using (Html.BeginForm("updateNews", "News", null, FormMethod.Post,
+                                     new { enctype = "multipart/form-data" }))
+            {
+                <div class="col">
+
+                    <div class="form-group row">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control lid" id="title" name="title" value=@ViewBag.news.title placeholder="Title">
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        <label for="desc">Description</label>
+                        <textarea class="form-control lid" id="desc" rows="15" name="description" value=@ViewBag.news.description placeholder="Description"></textarea>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+
+                        <label for="tag">Tag </label>
+                        <select class="form-control lid" name="tag" id="tag" required>
+                            <option value=@ViewBag.news.tag>@ViewBag.news.tag</option>
+                            <option value="India">india</option>
+                            <option value="World">world</option>
+                            <option value="Politics">politics</option>
+                            <option value="Business">business</option>
+                            <option value="Science">science</option>
+                            <option value="Sports">sports</option>
+                            <option value="Tech">tech</option>
+                            <option value="Health">health</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        <label for="image">Upload Image</label>
+                        <input type="file" id="image" name="file" class="form-control lid" />
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        <label for="city">City </label>
+                        <input type="text" class="form-control lid" id="city" name="city" value=@ViewBag.news.newsCity placeholder="City">
+                    </div>
+                </div>
+                <button type="submit" class="row btn btn-primary">Update</button>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div class="container">
+    <div class="jumbotron">
+        @if (ViewBag.message != null)
+        {
+            <h3>@ViewBag.message</h3>
+        }
+        @using (Html.BeginForm("Login", "Author", null, FormMethod.Post,
+                                     new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group row">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="authorName" placeholder="Name" required>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required>
+            </div>
+            <br />
+            <button type="submit" class="row btn btn-primary">Login</button>
+            <br />
+
+            <a href="@Url.Action("addAuthor", "Author",new { })" class="">Register as an author</a>
+
+        }
+    </div>
+</div>
